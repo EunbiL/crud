@@ -20,33 +20,33 @@ connect()
 //   body: 'Hello World from MilleFeuille!',
 // })
 const selectById = id => {
-  return { text: 'SELECT * FROM books WHERE id = $1', values: [id] }
+  return { text: 'SELECT * FROM seafood WHERE id = $1', values: [id] }
 }
 
 const updateOrInsert = (exist, id, info) => {
   if (exist) {
     log('update', { id, info })
     return {
-      text: 'UPDATE books SET info = $2 WHERE id = $1 RETURNING id',
+      text: 'UPDATE seafood SET info = $2 WHERE id = $1 RETURNING id',
       values: [id, info],
     }
   } else {
     log('create', { id, info })
     if (id) {
       return {
-        text: 'INSERT INTO books (id, info) VALUES ($1, $2) RETURNING id',
+        text: 'INSERT INTO seafood (id, info) VALUES ($1, $2) RETURNING id',
         values: [id, info],
       }
     } else {
       return {
-        text: 'INSERT INTO books (info) VALUES ($1) RETURNING id',
+        text: 'INSERT INTO seafood (info) VALUES ($1) RETURNING id',
         values: [info],
       }
     }
   }
 }
 
-const getBooks = async ({ id }) => {
+const getSeafood = async ({ id }) => {
   log({ id })
   const query = selectById(id)
   const { rows } = await client.query(query)
@@ -56,7 +56,7 @@ const getBooks = async ({ id }) => {
 
 const createOrUpdate = async ({ id, info: infoStr }) => {
   log(id, infoStr)
-  const old = await getBooks({ id })
+  const old = await getSeafood({ id })
   log(Object.keys(old))
   const exist = JSON.parse(old.body)
   const info = JSON.parse(infoStr)
@@ -76,7 +76,7 @@ const createOrUpdateProfilesHandler = async ({ url }) => {
 const getProfilesHandler = async ({ url }) => {
   const { id } = url.query
   if (id) {
-    return getBooks({ id })
+    return getSeafood({ id })
   } else {
     return forbidden('no value')
   }
@@ -86,7 +86,7 @@ const ok = () => response('OK')
 
 const handler = Assemble.routes([
   get('/', ok),
-  context('/books', [
+  context('/seafood', [
     get('/', getProfilesHandler),
     get('/create', createOrUpdateProfilesHandler),
   ]),

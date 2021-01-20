@@ -1,4 +1,4 @@
-# Crud-books
+# Crud-seafood
 
 A simple REST server build with JS on a pg DB.
 
@@ -24,7 +24,7 @@ When server is up :
 
 localhost:PORT => 'OK'
 
-localhost:PORT/books?id=2fb4d4e0-4625-49b3-add0-b68e13072254 =>
+localhost:PORT/seafood?id=2fb4d4e0-4625-49b3-add0-b68e13072254 =>
 
 ```json
 [
@@ -37,4 +37,4 @@ localhost:PORT/books?id=2fb4d4e0-4625-49b3-add0-b68e13072254 =>
 ]
 ```
 
-localhost:PORT/books/create?info={} => '2fb4d4e0-4625-49b3-add0-b68e13072254'
+localhost:PORT/seafood/create?info={} => '2fb4d4e0-4625-49b3-add0-b68e13072254'
