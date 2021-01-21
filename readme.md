@@ -22,7 +22,11 @@ yarn start # or npm run start
 
 When server is up :
 
+##### root
+
 localhost:PORT => 'OK'
+
+##### request per id
 
 localhost:PORT/seafood?id=2fb4d4e0-4625-49b3-add0-b68e13072254 =>
 
@@ -37,4 +41,12 @@ localhost:PORT/seafood?id=2fb4d4e0-4625-49b3-add0-b68e13072254 =>
 ]
 ```
 
-localhost:PORT/seafood/create?info={} => '2fb4d4e0-4625-49b3-add0-b68e13072254'
+#### create/update
+
+localhost:PORT/seafood/create?info={}
+
+=> '2fb4d4e0-4625-49b3-add0-b68e13072254'
+
+localhost:PORT/seafood/create?info={}&id=2fb4d4e0-4625-49b3-add0-b68e13072254
+
+=> '2fb4d4e0-4625-49b3-add0-b68e13072254'
