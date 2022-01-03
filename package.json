@@ -6,7 +6,7 @@
   "dependencies": {
     "@frenchpastries/assemble": "^0.2.1",
     "@frenchpastries/millefeuille": "^0.1.11",
-    "@wolfox/caravel": "^0.1.2",
+    "@ghivert/caravel": "^0.1.1",
     "dotenv": "^8.2.0",
     "pg": "^8.5.1"
   },

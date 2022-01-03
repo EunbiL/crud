@@ -22,9 +22,17 @@ yarn start # or npm run start
 
 When server is up :
 
-localhost:PORT => 'OK'
+##### root
 
+```
+localhost:PORT => 'OK'
+```
+
+##### request per id
+
+```
 localhost:PORT/books?id=2fb4d4e0-4625-49b3-add0-b68e13072254 =>
+```
 
 ```json
 [
@@ -37,4 +45,16 @@ localhost:PORT/books?id=2fb4d4e0-4625-49b3-add0-b68e13072254 =>
 ]
 ```
 
-localhost:PORT/books/create?info={} => '2fb4d4e0-4625-49b3-add0-b68e13072254'
+##### create/update
+
+```
+localhost:PORT/books/create?info={}
+```
+
+=> '2fb4d4e0-4625-49b3-add0-b68e13072254'
+
+```
+localhost:PORT/books/create?info={}&id=2fb4d4e0-4625-49b3-add0-b68e13072254
+```
+
+=> '2fb4d4e0-4625-49b3-add0-b68e13072254'
